@@ -80,7 +80,7 @@ component 'cpp-pcp-client' do |pkg, settings, platform|
 
   cmake_cxx_compiler = ''
   if platform.name =~ /el-7/
-    pkg.environment "PATH", "/opt/rh/devtoolset-7/root/usr/bin:$(PATH)"
+    pkg.environment 'PATH', "/opt/rh/devtoolset-7/root/usr/bin:$(PATH)"
     cmake_cxx_compiler = '-DCMAKE_CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/g++'
   end
 
