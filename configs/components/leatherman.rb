@@ -160,10 +160,10 @@ component 'leatherman' do |pkg, settings, platform|
 
   # Make test will explode horribly in a cross-compile situation
   # Tests will be skipped on AIX and Solaris SPARC until they are expected to pass
-  # 
+  #
   # NB - Just bypassing tests for now to get this thing working
-  #if !platform.is_cross_compiled? && !platform.is_aix? && !(platform.is_solaris? && !platform.is_cross_compiled? && platform.architecture == 'sparc')
-  if false
+  # if !platform.is_cross_compiled? && !platform.is_aix? && !(platform.is_solaris? && !platform.is_cross_compiled? && platform.architecture == 'sparc')
+  if false # rubocop:disable Lint/LiteralAsCondition
     test_locale = 'LANG=C LC_ALL=C' if platform.is_solaris? || platform.name =~ /debian-10/
     ld_library_path = platform.name == 'sles-11-x86_64' ? '/opt/pl-build-tools/lib64' : settings[:libdir]
     pkg.check do
